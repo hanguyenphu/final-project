@@ -1,0 +1,108 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Beeblee</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <!-- Right aligned menu below button -->
+       <a href="#">
+            <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1" style="color: white;">shopping_cart</div>
+        </a>
+
+        <button id="demo-menu-lower-right"
+                class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+        </button>
+
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            for="demo-menu-lower-right">
+        <li class="mdl-menu__item">
+            <a class="mdl-menu__item" href="" style="color: black;">
+                <i class="material-icons" style="vertical-align: middle !important;">person</i>
+                Login
+            </a>
+        </li>
+        <li class="mdl-menu__item" >
+            <a class="mdl-menu__item" href="" style="color: black;">
+                <i class="material-icons" style="vertical-align: middle !important;">history</i>
+                Order History
+            </a>
+        </li>
+        <li disabled class="mdl-menu__item">Disabled Action</li>
+       <li class="mdl-menu__item" >
+            <a class="mdl-menu__item" href="" style="color: black;">
+                <i class="material-icons" style="vertical-align: middle !important;">power_settings_new</i>
+                Logout
+            </a>
+        </li>
+        </ul>
+
+
+
+      <%# <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav> %>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Beeblee</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href=""><i class="material-icons">home</i> Home</a>
+
+      <a class="mdl-navigation__link" href=""><i class="material-icons">view_list</i> Products</a>
+      <a class="mdl-navigation__link" href=""><i class="material-icons">history</i> Order History</a>
+        <a class="mdl-navigation__link" href=""><i class="material-icons">perm_contact_calendar</i> Contact Us</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid portfolio-max-width">
+
+                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">About</h2>
+                    </div>
+                    <div class="mdl-card__media mdl-cell--12-col">
+                        <img class="article-image" width=100% src="/assets/images/bluethroat-or-luscinia-svecica-M9ALYUK.jpg" border="0" alt="">
+                    </div>
+
+                    <div class="mdl-grid portfolio-copy">
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                            <p>
+                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        <%# <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--1-col">
+            </div>
+
+            <div class="mdl-cell mdl-cell--10-col">
+                <p class="mdc-typography--headline3">About Us</p>
+                <p>This e-commerce site allows customers to pick desirable features for their future website</p>
+                <p>In order to initialize the project, please login</p>
+                <button class="mdc-button">
+                    <span class="mdc-button__label">Start</span>
+                </button>
+            </div>
+
+            <div class="mdl-cell mdl-cell--1-col">
+            </div>
+        </div> %>
+
+    </div>
+  </main>
+</div>
+
