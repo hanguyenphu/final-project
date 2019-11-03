@@ -1,0 +1,54 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+
+  
+      <!-- Wide card with share menu button -->
+<style>
+.demo-card-wide.mdl-card {
+ 
+  width: 70%;
+  margin: 0px auto;
+  margin-top:50px;
+  
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 500px;
+  background: url('<%=url_for(@feature.product_image) %>') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text" style="font-size:3em !important; "><%=@feature.name%></%=@feature.name%>
+  </div>
+  <div class="mdl-card__supporting-text" style="overflow:auto">
+      <div style="height: 30px; margin-top:10px">
+        <p><span style="font-size: 1.1em; color:black;">Price: </span><span style="font-size: 1.3em; color:#ff5e33;">$<%=@feature.price%></span></p>
+      </div>
+       <div style="height: 30px; margin-top:10px">
+        <p><span style="font-size: 1.1em; color:black;">Category: </span><span style=""><%=@feature.category.title%></span></p>
+      </div>
+      <div style="height: 30px; margin-top:10px">
+        <p><span style="font-size: 1.1em; color:black;">Status: </span><span style=""><%=@feature.status.title%></span></p>
+      </div>
+      <p style="margin-top:10px;  "><%=@feature.description%></p>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#33ceff; float:right ">
+        <i class="material-icons">
+            add_shopping_cart
+        </i> Add To Cart
+    </button>
+  </div>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <%# <i class="material-icons">share</i> %>
+    </button>
+  </div>
+</div>
+
+</div>

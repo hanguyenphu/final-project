@@ -1,0 +1,38 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <%=render partial: 'navigation/nav'%>
+  
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="mdl-grid portfolio-max-width">
+
+                <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <%@abouts.each do |about|%>
+                    <div class="mdl-card__title">
+                         <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline"><%= about.header%></h3>
+                    </div>
+
+                    <%if about.image.present?%>
+                        <div class="mdl-card__media mdl-cell--12-col">
+                            <img class="article-image" width=100% src="<%=url_for(about.image) %>" alt="">
+                        </div>
+                    <%end%>
+
+                    <div class="mdl-grid portfolio-copy">          
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                            <p>
+                               <%=about.content%>
+                            </p>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
+
+
+            </div>
+
+
+    </div>
+  </main>
+</div>
+

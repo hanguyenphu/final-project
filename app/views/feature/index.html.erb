@@ -1,0 +1,13 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+
+   <main class="mdl-layout__content">
+        <div class="mdl-grid"  >
+           
+                <%=render partial: 'feature',
+                          collection: @features, 
+                          locals: {link_for_details: true}%>
+           
+        </div>
+    </main>
+</div>

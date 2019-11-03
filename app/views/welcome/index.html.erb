@@ -1,65 +1,6 @@
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span class="mdl-layout-title">Beeblee</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <!-- Right aligned menu below button -->
-       <a href="#">
-            <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1" style="color: white;">shopping_cart</div>
-        </a>
-
-        <button id="demo-menu-lower-right"
-                class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">more_vert</i>
-        </button>
-
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-            for="demo-menu-lower-right">
-        <li class="mdl-menu__item">
-            <a class="mdl-menu__item" href="" style="color: black;">
-                <i class="material-icons" style="vertical-align: middle !important;">person</i>
-                Login
-            </a>
-        </li>
-        <li class="mdl-menu__item" >
-            <a class="mdl-menu__item" href="" style="color: black;">
-                <i class="material-icons" style="vertical-align: middle !important;">history</i>
-                Order History
-            </a>
-        </li>
-        <li disabled class="mdl-menu__item">Disabled Action</li>
-       <li class="mdl-menu__item" >
-            <a class="mdl-menu__item" href="" style="color: black;">
-                <i class="material-icons" style="vertical-align: middle !important;">power_settings_new</i>
-                Logout
-            </a>
-        </li>
-        </ul>
-
-
-
-      <%# <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav> %>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Beeblee</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="/"><i class="material-icons">home</i> Home</a>
-
-      <a class="mdl-navigation__link" href=""><i class="material-icons">view_list</i> Products</a>
-      <%# <a class="mdl-navigation__link" href=""><i class="material-icons">history</i> Order History</a> %>
-        <a class="mdl-navigation__link" href="/contact/index"><i class="material-icons">perm_contact_calendar</i> Contact Us</a>
-    </nav>
-  </div>
+  <%=render partial: 'navigation/nav'%>
   <main class="mdl-layout__content">
     <div class="page-content">
         <div class="mdl-grid portfolio-max-width">
@@ -69,7 +10,7 @@
                         <h2 class="mdl-card__title-text">About</h2>
                     </div>
                     <div class="mdl-card__media mdl-cell--12-col">
-                        <img class="article-image" width=100% src="/assets/images/bluethroat-or-luscinia-svecica-M9ALYUK.jpg" border="0" alt="">
+                        <img class="article-image" width=100% src="/assets/images/radek-grzybowski-eBRTYyjwpRY-unsplash.jpg" alt="">
                     </div>
 
                     <div class="mdl-grid portfolio-copy">
