@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'feature/index'
   get 'feature/:id', to: 'feature#show'
   get 'category/index'
-  get 'category/show'
+  get 'category/:id', to: 'category#show'
   get 'about/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

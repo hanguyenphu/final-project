@@ -1,6 +1,6 @@
 class FeatureController < ApplicationController
   def index
-    @features = Feature.all
+    @pagy, @features = pagy(Feature.all, items: 6)
   end
 
   def show

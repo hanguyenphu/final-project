@@ -2,12 +2,17 @@
  <%=render partial: 'navigation/nav'%>
 
    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center"><%== pagy_nav(@pagy) %></div>
+        </div>
         <div class="mdl-grid"  >
-           
                 <%=render partial: 'feature',
                           collection: @features, 
-                          locals: {link_for_details: true}%>
-           
+                          locals: {link_for_details: true, link_for_category:true}%>
         </div>
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center"><%== pagy_nav(@pagy) %></div>
+        </div>
+     
     </main>
 </div>

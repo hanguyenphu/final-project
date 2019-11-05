@@ -30,7 +30,8 @@
         <p><span style="font-size: 1.1em; color:black;">Price: </span><span style="font-size: 1.3em; color:#ff5e33;">$<%=@feature.price%></span></p>
       </div>
        <div style="height: 30px; margin-top:10px">
-        <p><span style="font-size: 1.1em; color:black;">Category: </span><span style=""><%=@feature.category.title%></span></p>
+        <p><span style="font-size: 1.1em; color:black;">Category: </span><a href="/category/<%=@feature.category.id%>"><%=@feature.category.title%>
+                        </a></p>
       </div>
       <div style="height: 30px; margin-top:10px">
         <p><span style="font-size: 1.1em; color:black;">Status: </span><span style=""><%=@feature.status.title%></span></p>

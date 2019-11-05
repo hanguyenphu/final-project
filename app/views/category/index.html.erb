@@ -3,7 +3,26 @@
 
    <main class="mdl-layout__content">
     <div class="page-content">
-        
-    </div>
+      <div class="mdl-grid"  >
+          <%@categories.each do |category|%>
+          <div class="mdl-cell mdl-cell--4-col" style="padding: 10px;">
+              <div class="mdl-card" >
+                <div class="mdl-card__title">
+                    <%=category.title%>
+                </div>
+              
+                <div class="mdl-card__supporting-text" style="height:130px;">
+                    <%=category.description%>
+                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="/category/<%=category.id%>" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                      View all products of <%=category.title%>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <%end%>
+        </div>
+      </div>
     </main>
 </div>
