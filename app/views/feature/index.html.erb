@@ -2,10 +2,59 @@
  <%=render partial: 'navigation/nav'%>
 
    <main class="mdl-layout__content">
+   <form style="padding-top: 30px; margin-left: 30px;">
+         <div class="mdl-grid" >
+            <h2 class="mdl-card__title-text"> Search By</h2>
+         </div>
+        <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--3-col">
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                <input type="text" value="" class="mdl-textfield__input" id="category" readonly>
+                <input type="hidden" value="" name="category">
+                <label for="category" class="mdl-textfield__label">Category</label>
+                <ul for="category" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                    <%@categories.each do |category|%>
+                    <li class="mdl-menu__item" data-val="<%=category.id%>"><%=category.title%></li>
+                    <%end%>
+                </ul>
+              </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--3-col">
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                <input type="text" value="" class="mdl-textfield__input" id="status" readonly>
+                <input type="hidden" value="" name="status">
+                <label for="status" class="mdl-textfield__label">Status</label>
+                <ul for="status" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                    <%@statuses.each do |status|%>
+                    <li class="mdl-menu__item" data-val="<%=status.id%>"><%=status.title%></li>
+                    <%end%>
+                </ul>
+              </div>
+        </div>
+
+         <div class="mdl-cell mdl-cell--3-col">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" name="feature" type="text" id="feature">
+              <label class="mdl-textfield__label" for="feature">Key words</label>
+            </div>
+         </div>
+         <div class="mdl-cell mdl-cell--3-col">
+            <button class="mdc-button mdc-button--unelevated" >Search</button>
+          </div>
+        </div>
+    </form>
         <div class="mdl-grid">
           <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center"><%== pagy_nav(@pagy) %></div>
         </div>
+       
         <div class="mdl-grid"  >
+
+              <%if @features.count ==0 %>
+              <div class="mdl-cell mdl-cell--4-col"></div>
+              <div class="mdl-cell mdl-cell--4-col"><p style="color:red">There is no feature found!</p></div>
+              <div class="mdl-cell mdl-cell--4-col"></div>
+              <%end%>
                 <%=render partial: 'feature',
                           collection: @features, 
                           locals: {link_for_details: true, link_for_category:true}%>
