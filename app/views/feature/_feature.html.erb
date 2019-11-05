@@ -1,14 +1,14 @@
-<div class="mdl-cell mdl-cell--4-col ">
-        
+<div class="mdl-cell mdl-cell--3-col ">
+
     <div class="mdl-card">
-       
+
         <%if feature.product_image.present?%>
         <div class="mdl-card__media" style="background-color:#ffff !important;">
             <img src="<%=url_for(feature.product_image) %>" height=300  alt=""
             style="padding:10px;">
         </div>
         <%end%>
-         <div class="mdl-card__title" 
+         <div class="mdl-card__title"
          style="height=450px !important; white-space: nowrap;
                 overflow:hidden !important;
                 text-overflow: ellipsis;">
@@ -22,8 +22,8 @@
                 <p><span style="font-size: 1.1em; color:black">Description: </span><%=feature.description[0..100]%> ...</p>
             </div>
              <div style="height: 30px; margin-top:10px">
-                <p><span style="font-size: 1.1em; color:black;">Category: </span> 
-                
+                <p><span style="font-size: 1.1em; color:black;">Category: </span>
+
                     <%if link_for_category%>
                         <a href="/category/<%=feature.category.id%>"><%=feature.category.title%>
                         </a>
@@ -35,9 +35,9 @@
             <div style="height: 30px; margin-top:10px">
                 <p><span style="font-size: 1.1em; color:black;">Status: </span><%=feature.status.title%></p>
             </div>
-          
+
         </div>
-        <div class="mdl-card__actions" style="display: inline-block;"> 
+        <div class="mdl-card__actions" style="display: inline-block;">
         <%if link_for_details%>
             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="/feature/<%=feature.id%>" style="clear:both;">Details</a>
         <%end%>
@@ -46,9 +46,9 @@
                     add_shopping_cart
                 </i> Add To Cart
             </button>
-        
-       
-            
+
+
+
         </div>
     </div>
 </div>
