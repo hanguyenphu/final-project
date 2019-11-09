@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_02_224209) do
+ActiveRecord::Schema.define(version: 2019_11_09_234522) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "header"
@@ -93,6 +93,15 @@ ActiveRecord::Schema.define(version: 2019_11_02_224209) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_features_on_category_id"
     t.index ["status_id"], name: "index_features_on_status_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.decimal "gst"
+    t.decimal "pst"
+    t.decimal "hst"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "statuses", force: :cascade do |t|

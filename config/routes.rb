@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'contact/index'
 
+  get 'shopping_cart/index', to: 'shopping_cart#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'welcome/index'
 
