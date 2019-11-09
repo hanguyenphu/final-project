@@ -1,33 +1,30 @@
+# frozen_string_literal: true
+
 class FeatureController < ApplicationController
   def index
-
-    
-    @pagy, @features = pagy(Feature.all, items: 6)
+    @pagy, @features = pagy(Feature.all, items: 4)
     @categories = Category.all
     @statuses = Status.all
-    if params[:category].present?  
+    if params[:category].present?
       @category_id = params[:category]
-      @pagy, @features = pagy(Feature.where(:category_id => @category_id))
-    end
-    
-    if params[:status].present?  
-      @status_id = params[:status]
-      @pagy, @features = pagy(Feature.where(:status_id => @status_id ))
+      @pagy, @features = pagy(Feature.where(category_id: @category_id), items: 4)
     end
 
-    if params[:feature].present?  
+    if params[:status].present?
+      @status_id = params[:status]
+      @pagy, @features = pagy(Feature.where(status_id: @status_id), items: 4)
+    end
+
+    if params[:feature].present?
       @feature = params[:feature].downcase
-      @pagy, @features = pagy(Feature.where('lower(name) LIKE ?' , "%#{@feature}%" ))
+      @pagy, @features = pagy(Feature.where('lower(name) LIKE ?', "%#{@feature}%"), items: 4)
     end
-    
-    if params[:category].present? && params[:status].present? 
+
+    if params[:category].present? && params[:status].present?
       @category_id = params[:category]
       @status_id = params[:status]
-      @pagy, @features = pagy(Feature.where(:category_id => @category_id, :status_id => @status_id))
+      @pagy, @features = pagy(Feature.where(category_id: @category_id, status_id: @status_id), items: 4)
     end
-   
-    
-
   end
 
   def show
