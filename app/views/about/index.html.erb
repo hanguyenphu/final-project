@@ -5,7 +5,10 @@
   <main class="mdl-layout__content">
     <div class="page-content">
         <div class="mdl-grid portfolio-max-width">
-                
+                <div style="color:red">
+           <%= flash[:alert]%>
+      </div>
+     
                 <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                     <%@abouts.each do |about|%>
                     <div class="mdl-card__title">
