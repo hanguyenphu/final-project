@@ -1,16 +1,38 @@
-<h2>Forgot your password?</h2>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+
+<div class="mdl-grid">
+  
+  <div class="mdl-cell mdl-cell--12-col">
+      <h2>Forgot Your Password?</h2>
+
+
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+ <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"mdl-textfield__input"  %>
+        <%= f.label :email, class:"mdl-textfield__label"   %>
+
+      </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions",  class:"mdl-button mdl-js-button mdl-button--accent" %>
   </div>
 <% end %>
 
 <%= render "users/shared/links" %>
+
+
+    
+
+
+
+
+  
+</div>
+
+  </div>
+
+

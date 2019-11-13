@@ -17,25 +17,28 @@
 
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
             for="demo-menu-lower-right">
+        <% if !user_signed_in?%>
         <li class="mdl-menu__item">
             <a class="mdl-menu__item" href="/users/sign_in" style="color: black;">
                 <i class="material-icons" style="vertical-align: middle !important;">person</i>
                 Login
             </a>
         </li>
+       
+       <%else%>
         <li class="mdl-menu__item" >
-            <a class="mdl-menu__item" href="" style="color: black;">
+            <a   class="mdl-menu__item" href="" style="color: black;">
                 <i class="material-icons" style="vertical-align: middle !important;">history</i>
                 Order History
             </a>
         </li>
-      
        <li class="mdl-menu__item" >
             <a class="mdl-menu__item" href="/users/sign_out" style="color: black;" data-method="delete" rel="nofollow">
                 <i class="material-icons" style="vertical-align: middle !important;">power_settings_new</i>
                 Log out
             </a>
         </li>
+        <%end%>
         </ul>
     </div>
   </header>
@@ -51,3 +54,4 @@
         <a class="mdl-navigation__link" href="/contact/index"><i class="material-icons">perm_contact_calendar</i> Contact Us</a>
     </nav>
   </div>
+
