@@ -11,6 +11,12 @@
                 <%@product.each do |product|%>
                     <%=product%>
                 <%end%>
+                <%=@feature_ids %>
+
+                <%@features.each do |feature|%>
+                    <%=feature.name%>
+                    <br/>
+                <%end%>
                 <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                     <%@abouts.each do |about|%>
                     <div class="mdl-card__title">

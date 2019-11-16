@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
 
   post 'add_to_cart', to:'shopping_cart#add_to_cart', as: 'add_to_cart'
+  post 'remove_from_cart', to:'shopping_cart#remove_from_cart', as: 'remove_from_cart'
 
   root 'about#index'
 end
