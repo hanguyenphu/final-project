@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
 
+  post 'add_to_cart', to:'shopping_cart#add_to_cart', as: 'add_to_cart'
+
   root 'about#index'
 end
