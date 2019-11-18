@@ -4,13 +4,13 @@ class AboutController < ApplicationController
     # create_shopping_cart
     # @new_product_array = @cart.push(Feature.last);
     # session[:shopping_cart] = @new_product_array
-    
-    @product = session[:shopping_cart]
+    @product = []
+    @product = session[:shopping_cart] if session[:shopping_cart].present?
 
     @cart = session[:shopping_cart] if session[:shopping_cart].present?
 
     @feature_ids = [];
-    @cart.each_key {|key| @feature_ids.push(key)}
+    @cart.each_key {|key| @feature_ids.push(key)} if @cart != nil
 
     @features = Feature.where(id: @feature_ids)
 

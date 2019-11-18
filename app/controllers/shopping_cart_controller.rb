@@ -6,13 +6,24 @@ class ShoppingCartController < ApplicationController
     def index
         @cart = session[:shopping_cart] if session[:shopping_cart].present?
         @feature_ids = [];
-        @cart.each_key {|key| @feature_ids.push(key)}
+        
+        @cart.each_key {|key| @feature_ids.push(key)} if @cart != nil
 
         @features = Feature.where(id: @feature_ids)
-        @content = {
-            feature: @features,
-            quality: @cart,
-        }
+        if @features.size > 0 
+            @content = {
+                feature: @features,
+                quality: @cart,
+                authenticated: user_signed_in?
+            }
+        else
+            @content = {
+                feature: [],
+                quality: [],
+                authenticated: user_signed_in?
+            }
+        end
+       
         render json: {:data => @content, :status => 200}
         
     end

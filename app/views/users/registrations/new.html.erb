@@ -1,4 +1,4 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
  <%=render partial: 'navigation/nav'%>
 
  <div class="mdl-grid" >
@@ -37,13 +37,13 @@
       <br/>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <%= f.text_field :address, autocomplete: "address", class:"mdl-textfield__input", required: true %>
+            <%= f.text_field :address, class:"mdl-textfield__input", required: true %>
             <%= f.label :address, class:"mdl-textfield__label"%>
         </div>
         <br/>
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <%= f.label :province%><br />
+         <label for="province_province_id"> Province </label>
           <%= collection_select :province, :province_id, Province.all, :id, :name%>
         </div>
         <br/>

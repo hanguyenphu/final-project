@@ -1,45 +1,14 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">Beeblee</span>
+      <%# <span class="mdl-layout-title">Beeblee</span> %>
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <!-- Right aligned menu below button -->
-       <a href="/shopping_cart/index">
+       <a href="http://localhost:3001/">
             <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1" style="color: white;">shopping_cart</div>
         </a>
-
-        <button id="demo-menu-lower-right"
-                class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">more_vert</i>
-        </button>
-
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-            for="demo-menu-lower-right">
-        <% if !user_signed_in?%>
-        <li class="mdl-menu__item">
-            <a class="mdl-menu__item" href="/users/sign_in" style="color: black;">
-                <i class="material-icons" style="vertical-align: middle !important;">person</i>
-                Login
-            </a>
-        </li>
-       
-       <%else%>
-        <li class="mdl-menu__item" >
-            <a   class="mdl-menu__item" href="" style="color: black;">
-                <i class="material-icons" style="vertical-align: middle !important;">history</i>
-                Order History
-            </a>
-        </li>
-       <li class="mdl-menu__item" >
-            <a class="mdl-menu__item" href="/users/sign_out" style="color: black;" data-method="delete" rel="nofollow">
-                <i class="material-icons" style="vertical-align: middle !important;">power_settings_new</i>
-                Log out
-            </a>
-        </li>
-        <%end%>
-        </ul>
     </div>
   </header>
 
@@ -52,6 +21,23 @@
       <a class="mdl-navigation__link" href="/category/index"><i class="material-icons">category</i> Categories</a>
       <%# <a class="mdl-navigation__link" href=""><i class="material-icons">history</i> Order History</a> %>
         <a class="mdl-navigation__link" href="/contact/index"><i class="material-icons">perm_contact_calendar</i> Contact Us</a>
+          <% if !user_signed_in?%>
+            <a class="mdl-navigation__link" href="/users/sign_in" >
+                <i class="material-icons" >person</i>
+                Login
+            </a>
+          <%else%>
+
+            <a   class="mdl-navigation__link" href="" >
+                <i class="material-icons" >history</i>
+                Order History
+            </a>
+
+            <a class="mdl-navigation__link" href="/users/sign_out"  data-method="delete" rel="nofollow">
+                <i class="material-icons" >power_settings_new</i>
+                Log out
+            </a>
+          <%end%>
     </nav>
   </div>
 

@@ -1,5 +1,5 @@
 <!-- Always shows a header, even in smaller screens. -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <%=render partial: 'navigation/nav'%>
   
   <main class="mdl-layout__content">
@@ -25,7 +25,7 @@
 
                     <%if about.image.present?%>
                         <div class="mdl-card__media mdl-cell--12-col">
-                            <img class="article-image" width=100% src="<%=url_for(about.image) %>" alt="">
+                            <img class="article-image" style="width: 100%" src="<%=url_for(about.image) %>" alt="">
                         </div>
                     <%end%>
 
