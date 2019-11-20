@@ -38,6 +38,13 @@ class LeftNav extends Component {
                         Order History
                     </a>
 
+                    <a className="mdl-navigation__link" href="http://localhost:3000/users/edit">
+                        <i className="material-icons">
+                            person_pin
+                        </i>
+                            Profile
+                    </a>
+
                     <a className="mdl-navigation__link" href="http://localhost:3000/users/sign_out"  onClick={this.handleSignOut}>
                         <i className="material-icons" >power_settings_new</i>
                         Log out
