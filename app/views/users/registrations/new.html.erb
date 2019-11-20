@@ -5,7 +5,7 @@
   <div class="mdl-cell mdl-cell--12-col">
 
         <h2>Sign up</h2>
-     
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -14,7 +14,7 @@
           <%= f.label :name, class:"mdl-textfield__label" %>
       </div>
       <br/>
-    
+
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
           <%= f.text_field :email, autocomplete: "email", class:"mdl-textfield__input", required: true  %>
           <%= f.label :email, class:"mdl-textfield__label" %>
@@ -44,7 +44,9 @@
 
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
          <label for="province_province_id"> Province </label>
+         <div class="select-style">
           <%= collection_select :province, :province_id, Province.all, :id, :name%>
+          </div>
         </div>
         <br/>
 
@@ -53,11 +55,34 @@
         </div>
         <br/>
             <%= link_to "Log in", new_session_path(resource_name) %><br />
-        
+
         <% end %>
 
-    
+
     </div>
   </div>
 </div>
 
+<style>
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+</style>

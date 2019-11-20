@@ -59,7 +59,7 @@
     </button>
   </div>
 </form>
-  <%= button_to 'Remove this feature from Session', {:controller => "shopping_cart", :action => "remove_from_cart", :id => @feature.id, :quality => 5}, :method => :post %>
+  <%= button_to 'Remove this feature from Session', {:controller => "shopping_cart", :action => "remove_from_cart", :id => @feature.id}, :method => :post %>
 
   <div class="mdl-card__menu">
     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">

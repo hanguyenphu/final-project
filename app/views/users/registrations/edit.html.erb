@@ -1,43 +1,94 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+
+ <div class="mdl-grid" >
+  <div class="mdl-cell mdl-cell--12-col">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
 
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"mdl-textfield__input" %>
+      <%= f.label :email, class:"mdl-textfield__label" %>
+  </div>
+  <br/>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= f.text_field :name, class:"mdl-textfield__input", :value => current_user.name   %>
+     <%= f.label :name, class:"mdl-textfield__label" %>
+  </div>
+  <br/>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <%= f.text_field :address, class:"mdl-textfield__input", :value => current_user.address  %>
+     <%= f.label :address, class:"mdl-textfield__label" %>
+  </div>
+  <br/>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.label :province %><br />
+      <div class="select-style">
+       <%= collection_select :province, :province_id, Province.all, :id, :name %>
+      </div>
+
+  </div>
+<br/>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+    <%= f.password_field :password, autocomplete: "new-password", class:"mdl-textfield__input"%>
+      <%= f.label :password ,  class:"mdl-textfield__label" %> <i>(leave blank if you don't want to change it)</i>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
+<br />
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, class:"mdl-textfield__input", autocomplete: "new-password" %>
+       <%= f.label :password_confirmation, class:"mdl-textfield__label" %>
   </div>
+<br />
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class:"mdl-textfield__input" %>
+      <%= f.label :current_password, class:"mdl-textfield__label" %> <i>(we need your current password to confirm your changes)</i>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+<br/>
 <%= link_to "Back", :back %>
+   </div>
+  </div>
+</div>
+
+<style>
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+</style>

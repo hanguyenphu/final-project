@@ -1,15 +1,17 @@
-import React from 'react';
-import './App.css';
-import './components/ShoppingCart/ShoppingCart'
-import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import LeftNav from './components/LeftNav/LeftNav';
+import React from "react";
+import "./App.css";
+import "./components/ShoppingCart/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import { Route, Switch } from "react-router";
+
 
 function App() {
   return (
-   
-     
-      <ShoppingCart/>
-   
+    <Switch>
+      <Route exact path="/">
+        <ShoppingCart />
+      </Route>
+    </Switch>
   );
 }
 
