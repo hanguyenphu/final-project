@@ -67,7 +67,12 @@ class ShoppingCart extends Component {
     }
   };
 
-
+  handleRemove = id => event => {
+    event.preventDefaul
+   fetch(`http://localhost:3000/remove_from_cart/${id}`, {
+     method: "delete"
+   }).then(response => console.log(response))
+  }
 
   displayFeatures() {
     const { features, quality } = this.state;
