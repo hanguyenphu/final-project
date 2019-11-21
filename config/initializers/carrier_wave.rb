@@ -1,3 +1,3 @@
-rails ***config/initializers/carrier_wave.rb***
+# frozen_string_literal: true
 
-rails require 'carrierwave/orm/activerecord'
+require 'carrierwave/processing/mini_magick'
