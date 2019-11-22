@@ -25,7 +25,7 @@ class ShoppingCartController < ApplicationController
                  }
                end
 
-    render json: { data: @content, status: 200 }
+    # render json: { data: @content, status: 200 }
   end
 
   def add_to_cart

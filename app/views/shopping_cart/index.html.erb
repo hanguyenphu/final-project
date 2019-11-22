@@ -1,82 +1,54 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
  <%=render partial: 'navigation/nav'%>
 
- <div class="mdl-grid">
+ <main class="mdl-layout__content">
+ <div class="mdl-grid" >
    <h4 class="mdc-typography--headline4"><i class="material-icons">
-shopping_cart
-</i> Shopping Cart</h4>
-  <div class="mdl-cell mdl-cell--12-col">
-    <table class="mdl-data-table mdl-js-data-table">
-       
-    <thead>
-        <tr>
-            <th class="mdl-data-table__cell--non-numeric">Feature</th>
-            <th  class="mdl-data-table__cell">Quantity</th>
-            <th class="mdl-data-table__cell">Price</th>
-            <th class="mdl-data-table__cell">Total</th>
-            <th class="mdl-data-table__cell">View</th>
-            <th class="mdl-data-table__cell">Remove</th>
-        </tr>
-    </thead>
-  <tbody>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric">John Lennon John Lennon John Lennon</td>
-        <td  class="mdl-data-table__cell"><input type="number" style="width:40px; text-align: right; " min="1"  value=2 /></td>
-        <td class="mdl-data-table__cell">$500.00</td>
-        <td class="mdl-data-table__cell">$1000.00</td>
-        <td class="mdl-data-table__cell"><a href="#">Details</a></td>
-        <td class="mdl-data-table__cell"><a href="#" style="color:red"><i class="material-icons">delete_forever</i></a></td>
-    </tr>
+    shopping_cart
+    </i> Shopping Cart</h4>
 
-     <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td  class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell">Sub-Total: </td>
-        <td class="mdl-data-table__cell">$1000.00</td>
-        <td class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell"></td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td  class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell">GST (5%): </td>
-        <td class="mdl-data-table__cell">$5.00</td>
-        <td class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell"></td>
-    </tr>
-        <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td  class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell">PST (5%): </td>
-        <td class="mdl-data-table__cell">$5.00</td>
-        <td class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell"></td>
-    </tr>
-    <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td  class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell">HST (5%): </td>
-        <td class="mdl-data-table__cell">$5.00</td>
-        <td class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell"></td>
-    </tr>
+ </div>
 
-     <tr>
-        <td class="mdl-data-table__cell--non-numeric"></td>
-        <td  class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell">Total: </td>
-        <td class="mdl-data-table__cell">$1100.00</td>
-        <td class="mdl-data-table__cell"></td>
-        <td class="mdl-data-table__cell"></td>
-    </tr>
-  
-  </tbody>
-</table>
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">Feature</div>
+    <div class="mdl-cell mdl-cell--2-col">Quantity</div>
+    <div class="mdl-cell mdl-cell--2-col">Price</div>
+    <div class="mdl-cell mdl-cell--1-col">Total</div>
+     <div class="mdl-cell mdl-cell--1-col">Edit</div>
+
+    <div class="mdl-cell mdl-cell--1-col">Remove</div>
 </div>
-  
-</div>
+<ol>
+
+<% @features.each do |feature|%>
+<li>
+<form method="POST" >
+  <div class="mdl-grid" >
+      <div class="mdl-cell mdl-cell--4-col"><%=feature.name%></div>
+      <div class="mdl-cell mdl-cell--2-col">
+          <input class="mdl-textfield__input" type="number" readonly min=1 name="quality" value=<%=@cart["#{feature.id}"]%> style="width:50%">
+          <input  type="hidden" value=<%=feature.id%>>
+      </div>
+      <div class="mdl-cell mdl-cell--2-col">$<%=feature.price%></div>
+      <div class="mdl-cell mdl-cell--1-col">$<%=feature.price.to_f * @cart["#{feature.id}"].to_f %></div>
+
+      <div class="mdl-cell mdl-cell--1-col"><a href="/feature/<%=feature.id%>" style="color:blue"><i class="material-icons">edit</i></a></div>
+      <div class="mdl-cell mdl-cell--1-col"><a href="#" style="color:red"><i class="material-icons">delete_forever</i></a></div>
+  </div>
+</form>
+<br/>
+</li>
+<% end %>
+
+</ol>
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 30px;">
+  Process To Checkout <i class="material-icons">
+    arrow_forward
+</i>
+</button>
 
 
-  
+
+ </main>
 
  </div>
