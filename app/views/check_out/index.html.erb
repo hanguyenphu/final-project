@@ -1,0 +1,110 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+
+
+
+    <main class="mdl-layout__content">
+
+
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <h4 class="mdc-typography--headline4"> <i class="material-icons">
+                    payment
+                    </i> Check Out
+                </h4>
+            </div>
+
+            <div class="mdl-cell mdl-cell--6-col">
+                 <h5 class="mdc-typography--headline4"> <i class="material-icons">storefront</i> Your Cart  <a href="/shopping_cart/index"><i class="material-icons">edit</i></a></h5>
+                <ol>
+                    <%@features.each do |feature| %>
+                    <li>
+                         <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--8-col">
+                                <p><%=feature.name%></p>
+                            </div>
+
+                            <div class="mdl-cell mdl-cell--2-col">
+                                <p>$<%=feature.price%> x <%=@cart["#{feature.id}"]%></p>
+                            </div>
+                        </div>
+                    </li>
+                    <%end%>
+                </ol>
+            </div>
+
+            <div class="mdl-cell mdl-cell--3-col">
+                <h5 class="mdc-typography--headline4"> <i class="material-icons">event_note</i>Order Summary </h5>
+                 <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <p>Sub Total: </p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                         <P>$<%=@sub_total%></P>
+                    </div>
+                    <div class="mdl-cell mdl-cell--4-col">
+                        <p>GST (<%=@gst%>%): </p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                         <P>$<%=@gst_total%></P>
+                    </div>
+                     <div class="mdl-cell mdl-cell--4-col">
+                        <p>PST (<%=@pst%>%): </p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                         <P>$<%=@pst_total%></P>
+                    </div>
+                     <div class="mdl-cell mdl-cell--4-col">
+                        <p>HST (<%=@hst%>%): </p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                         <P>$<%=@hst_total%></P>
+                    </div>
+
+                     <div class="mdl-cell mdl-cell--4-col">
+                        <h5 style="color:red">Total: </h5>
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                         <h5 style="color:red">$<%=@total%></h5>
+                    </div>
+                 </div>
+            </div>
+
+
+        <div class="mdl-cell mdl-cell--3-col">
+            <h5 class="mdc-typography--headline4"> <i class="material-icons">person</i> Billing Information
+                <a href="/users/edit"><i class="material-icons">edit</i></a>
+            </h5>
+             <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <p>Email:</p>
+                </div>
+                 <div class="mdl-cell mdl-cell--6-col">
+                       <P><%=@user.email%></P>
+                </div>
+             </div>
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <p>Fullname:</p>
+                </div>
+                 <div class="mdl-cell mdl-cell--6-col">
+                         <P><%=@user.name%></P>
+                </div>
+             </div>
+
+              <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <p>Address:</p>
+                </div>
+                 <div class="mdl-cell mdl-cell--6-col">
+                    <P><%=@user.address%></P>
+                </div>
+             </div>
+        </div>
+    </div>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 50px;">
+        Make a payment <i class="material-icons">credit_card</i>
+    </button>
+  </main>
+</div>
+

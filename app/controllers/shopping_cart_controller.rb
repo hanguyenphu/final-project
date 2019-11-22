@@ -11,19 +11,22 @@ class ShoppingCartController < ApplicationController
     @cart&.each_key { |key| @feature_ids.push(key) }
 
     @features = Feature.where(id: @feature_ids)
-    @content = if !@features.empty?
-                 {
-                   feature: @features,
-                   quality: @cart,
-                   authenticated: user_signed_in?
-                 }
-               else
-                 {
-                   feature: [],
-                   quality: [],
-                   authenticated: user_signed_in?
-                 }
-               end
+
+
+
+    # @content = if !@features.empty?
+    #              {
+    #                feature: @features,
+    #                quality: @cart,
+    #                authenticated: user_signed_in?
+    #              }
+    #            else
+    #              {
+    #                feature: [],
+    #                quality: [],
+    #                authenticated: user_signed_in?
+    #              }
+    #            end
 
     # render json: { data: @content, status: 200 }
   end
@@ -43,6 +46,6 @@ class ShoppingCartController < ApplicationController
     @cart.delete(params[:id])
     session[:shopping_cart] = @cart
     # render json: { data: params[:id], status: 200 }
-    redirect_to "http://localhost:3001"
+    redirect_to '/shopping_cart/index'
   end
 end

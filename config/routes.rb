@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'check_out/index'
   devise_for :users do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
