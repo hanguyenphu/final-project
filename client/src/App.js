@@ -1,18 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import "./components/ShoppingCart/ShoppingCart";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
-import { Route, Switch } from "react-router";
+import { Route, Switch, Router } from "react-router-dom";
+import CheckOut from "./components/CheckOut/CheckOut";
+import { createBrowserHistory } from "history";
 
+const history = createBrowserHistory();
 
-function App() {
-  return (
-    <Switch>
-      <Route exact path="/">
-        <ShoppingCart />
-      </Route>
-    </Switch>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/" component={ShoppingCart} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

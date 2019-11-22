@@ -60,10 +60,11 @@ class ShoppingCart extends Component {
   };
 
   handleCheckOutButton = event => {
+    const {history} = this.props
     if (!this.state.authenticated) {
       window.location = "http://localhost:3000/users/sign_in";
     } else {
-     console.log("Authenticated");
+     console.log('Authenticated');
     }
   };
 
@@ -116,6 +117,7 @@ class ShoppingCart extends Component {
   }
 
   render() {
+
     if (!this.state.quality || !this.state.features) {
       return <Loading />;
     } else {
