@@ -7,7 +7,24 @@
                     check_circle
                     </i> Order Number: <%=@invoice.id%>
                 </h4>
-                <p>Status: <span style="color:green"><%=@invoice.status%></span></p>
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <p>Status:</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <p style="color:green"><%=@invoice.status%></p>
+                    </div>
+                  </div>
+
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--1-col">
+                        <p>Date:</p>
+                    </div>
+                    <div class="mdl-cell mdl-cell--3-col">
+                        <p ><%=@invoice.created_at%></p>
+                    </div>
+                  </div>
+               
             </div>
     </div>
      <div class="mdl-cell mdl-cell--6-col">
@@ -30,7 +47,7 @@
             </div>
 
             <div class="mdl-cell mdl-cell--3-col">
-                <h5 class="mdc-typography--headline4"> <i class="material-icons">event_note</i>Order Summary </h5>
+                <h5 class="mdc-typography--headline4"> <i class="material-icons">event_note</i> Order Summary </h5>
                  <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--4-col">
                         <p style="color:red">Total: </p>
