@@ -30,6 +30,8 @@ gem 'activeadmin'
 # Plus integrations with:
 gem 'devise'
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 gem 'pagy', '~> 3.5'
 
 gem 'carrierwave', '~> 2.0'

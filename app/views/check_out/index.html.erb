@@ -102,9 +102,11 @@
              </div>
         </div>
     </div>
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 50px;">
+
+    <%= button_to "Make a payment", check_out_create_path, method: :post, params: {total: @total}, remote: true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"%>
+    <%# <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 50px;">
         Make a payment <i class="material-icons">credit_card</i>
-    </button>
+    </button> %>
   </main>
 </div>
 
