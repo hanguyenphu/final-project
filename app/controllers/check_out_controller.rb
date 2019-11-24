@@ -50,7 +50,7 @@ class CheckOutController < ApplicationController
   end
 
   def success
-
+   
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
 
@@ -80,8 +80,10 @@ class CheckOutController < ApplicationController
     @invoice = Invoice.create(status: 'Paid', total: @total, province: @province.name, gst:@gst, 
     pst: @pst, hst: @hst, user_id: @user.id, payment_id:@payment_intent.id)
     @features.each do |feature|
-      Solditem.create(name: feature.name, description:feature.description, price: feature.price, quantity: @cart[feature.id], category_id: feature.category_id, invoice_id: @invoice.id)
+      Solditem.create(name: feature.name, description:feature.description, price: feature.price, quantity: @cart[feature.id.to_s], category_id: feature.category_id, invoice_id: @invoice.id)
     end
+
+    session.delete(:shopping_cart)
   end
 
   def cancel
