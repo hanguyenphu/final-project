@@ -12,9 +12,9 @@
 <% if @features.count != 0 %>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--4-col">Feature</div>
-    <div class="mdl-cell mdl-cell--2-col">Quantity</div>
-    <div class="mdl-cell mdl-cell--2-col">Price</div>
-    <div class="mdl-cell mdl-cell--1-col">Total</div>
+    <div class="mdl-cell mdl-cell--3-col">Quantity</div>
+    <div class="mdl-cell mdl-cell--1-col">Price</div>
+    <div class="mdl-cell mdl-cell--2-col">Total</div>
      <div class="mdl-cell mdl-cell--1-col">Edit</div>
 
     <div class="mdl-cell mdl-cell--1-col">Remove</div>
@@ -24,20 +24,31 @@
 
 <% @features.each do |feature|%>
 <li>
-<form method="POST" action="/remove_from_cart" >
+<%# <form method="POST" action="/remove_from_cart" > %>
   <div class="mdl-grid" >
       <div class="mdl-cell mdl-cell--4-col"><%=feature.name%></div>
-      <div class="mdl-cell mdl-cell--2-col">
-          <input class="mdl-textfield__input" type="number" readonly min=1 name="quality" value=<%=@cart["#{feature.id}"]%> style="width:50%">
-          <input  type="hidden" name="id" value=<%=feature.id%>>
+      <div class="mdl-cell mdl-cell--3-col">
+        <div class="mdl-grid" >
+            <%=button_to "+", { action: "add_quantity", id:feature.id, quantity:@cart["#{feature.id}"] },
+                                  method: :post, class: "button_add"%>
+            <input class="mdl-textfield__input" type="number"  readonly min=1 name="quality" value=<%=@cart["#{feature.id}"]%> align = "middle" style="width:20%; text-align: center; ">
+            <input  type="hidden" name="id" value=<%=feature.id%>>
+            <%=button_to "-", { action: "subtract_quantity", id:feature.id, quantity:@cart["#{feature.id}"] },
+                                  method: :post, class: "button_subtract"%>
+        </div>
       </div>
-      <div class="mdl-cell mdl-cell--2-col">$<%=feature.price%></div>
-      <div class="mdl-cell mdl-cell--1-col">$<%=feature.price.to_f * @cart["#{feature.id}"].to_f %></div>
+      <div class="mdl-cell mdl-cell--1-col">$<%=feature.price%></div>
+      <div class="mdl-cell mdl-cell--2-col">$<%=feature.price.to_f * @cart["#{feature.id}"].to_f %></div>
 
       <div class="mdl-cell mdl-cell--1-col"><a href="/feature/<%=feature.id%>" style="color:blue"><i class="material-icons">edit</i></a></div>
-      <div class="mdl-cell mdl-cell--1-col"><button type="submit" ><i class="material-icons">delete_forever</i></button></div>
+      <div class="mdl-cell mdl-cell--1-col">
+        <%# <button type="submit" ><i class="material-icons">delete_forever</i></button>
+         %>
+           <%=button_to "x", { action: "remove_from_cart", id:feature.id, },
+                                method: :post, data: { confirm: "Are you sure to remove?" }, class: "button_delete"%>
+        </div>
   </div>
-</form>
+<%# </form> %>
 <br/>
 </li>
 <% end %>

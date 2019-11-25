@@ -12,8 +12,6 @@ class ShoppingCartController < ApplicationController
 
     @features = Feature.where(id: @feature_ids)
 
-
-
     # @content = if !@features.empty?
     #              {
     #                feature: @features,
@@ -29,6 +27,29 @@ class ShoppingCartController < ApplicationController
     #            end
 
     # render json: { data: @content, status: 200 }
+  end
+
+  def add_quantity
+    @cart ||= {}
+    @cart = session[:shopping_cart] if session[:shopping_cart].present?
+    @feature_id = params[:id]
+    @quantity = params[:quantity].to_i + 1
+    @new_hash = { @feature_id => @quantity }
+    @cart.merge!(@new_hash)
+    session[:shopping_cart] = @cart
+    redirect_to '/shopping_cart/index'
+  end
+
+  def subtract_quantity
+    @cart ||= {}
+    @cart = session[:shopping_cart] if session[:shopping_cart].present?
+    @feature_id = params[:id]
+    @quantity = params[:quantity].to_i - 1
+    @quantity = 1 if @quantity == 0
+    @new_hash = { @feature_id => @quantity }
+    @cart.merge!(@new_hash)
+    session[:shopping_cart] = @cart
+    redirect_to '/shopping_cart/index'
   end
 
   def add_to_cart
