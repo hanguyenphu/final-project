@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'check_out/index'
+ 
+  get 'invoice/index'
+  get 'invoice/show'
   devise_for :users do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
@@ -26,4 +28,12 @@ Rails.application.routes.draw do
   # resources :shopping_cart
 
   root 'about#index'
+  get 'check_out/index', to: 'check_out#index', as: "check_out_index"
+  scope '/check_out' do
+   
+    post 'create', to: 'check_out#create', as: 'check_out_create'
+    get 'cancel', to: 'check_out#cancel', as: 'check_out_cancel'
+    get 'success', to: 'check_out#success', as: 'check_out_success'
+  end
+
 end

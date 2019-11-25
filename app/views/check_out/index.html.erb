@@ -76,7 +76,7 @@
                 <a href="/users/edit"><i class="material-icons">edit</i></a>
             </h5>
              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-cell mdl-cell--4-col">
                     <p>Email:</p>
                 </div>
                  <div class="mdl-cell mdl-cell--6-col">
@@ -84,7 +84,7 @@
                 </div>
              </div>
               <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-cell mdl-cell--4-col">
                     <p>Fullname:</p>
                 </div>
                  <div class="mdl-cell mdl-cell--6-col">
@@ -93,7 +93,7 @@
              </div>
 
               <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--6-col">
+                <div class="mdl-cell mdl-cell--4-col">
                     <p>Address:</p>
                 </div>
                  <div class="mdl-cell mdl-cell--6-col">
@@ -102,9 +102,11 @@
              </div>
         </div>
     </div>
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 50px;">
+
+    <%= button_to "Make a payment", check_out_create_path, method: :post, params: {total: @total}, remote: true, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"%>
+    <%# <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 50px;">
         Make a payment <i class="material-icons">credit_card</i>
-    </button>
+    </button> %>
   </main>
 </div>
 

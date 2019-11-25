@@ -1,0 +1,46 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+ <%=render partial: 'navigation/nav'%>
+  <main class="mdl-layout__content">
+   <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+                <h4 class="mdc-typography--headline4"> <i class="material-icons">
+                    date_range
+                    </i> Order History
+                </h4>
+            </div>
+    </div>
+      <%@invoices.each do |invoice|%>
+     <div class="mdl-grid" style="border-top: 1px solid red">
+        <div class="mdl-cell mdl-cell--2-col">
+            Order Id: <%=invoice.id%>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+            Date: <%=invoice.created_at%>
+        </div>
+
+        <div class="mdl-cell mdl-cell--1-col">
+            Status: <%=invoice.status%>
+        </div>
+
+         <div class="mdl-cell mdl-cell--2-col">
+            Total: $<%=invoice.total%>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
+            Items:
+            <ol>
+                <%invoice.solditems.all.each do |item|%>
+                    <li><%=item.name%></li>
+                <%end%>       
+            </ol>
+        </div>
+         <div class="mdl-cell mdl-cell--2-col">
+            <a href="/invoice/show?id=<%=invoice.id%>"><i class="material-icons">launch</i> </a>
+        </div>
+     </div>
+      <%end%>
+
+     <div class="mdl-grid"> 
+     </div>
+  </main>
+</div>

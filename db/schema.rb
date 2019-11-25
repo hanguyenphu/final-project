@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_195206) do
+ActiveRecord::Schema.define(version: 2019_11_23_214542) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "header"
@@ -95,6 +95,19 @@ ActiveRecord::Schema.define(version: 2019_11_21_195206) do
     t.index ["status_id"], name: "index_features_on_status_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.string "status"
+    t.decimal "total", precision: 5, scale: 2
+    t.string "province"
+    t.decimal "gst"
+    t.decimal "pst"
+    t.decimal "hst"
+    t.string "user_id"
+    t.string "payment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "provinces", force: :cascade do |t|
     t.string "name"
     t.decimal "gst"
@@ -102,6 +115,19 @@ ActiveRecord::Schema.define(version: 2019_11_21_195206) do
     t.decimal "hst"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "solditems", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price", precision: 5, scale: 2
+    t.integer "quantity"
+    t.integer "category_id"
+    t.integer "invoice_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_solditems_on_category_id"
+    t.index ["invoice_id"], name: "index_solditems_on_invoice_id"
   end
 
   create_table "statuses", force: :cascade do |t|
