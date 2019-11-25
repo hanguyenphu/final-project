@@ -1,22 +1,14 @@
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <%=render partial: 'navigation/nav'%>
-  
+
   <main class="mdl-layout__content">
     <div class="page-content">
         <div class="mdl-grid portfolio-max-width">
                 <div style="color:red">
            <%= flash[:alert]%>
       </div>
-                <%@product.each do |product|%>
-                    <%=product%>
-                <%end%>
-                <%=@feature_ids %>
 
-                <%@features.each do |feature|%>
-                    <%=feature.name%>
-                    <br/>
-                <%end%>
                 <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                     <%@abouts.each do |about|%>
                     <div class="mdl-card__title">
@@ -29,7 +21,7 @@
                         </div>
                     <%end%>
 
-                    <div class="mdl-grid portfolio-copy">          
+                    <div class="mdl-grid portfolio-copy">
                         <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
                             <p>
                                <%=about.content%>
