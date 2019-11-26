@@ -34,6 +34,7 @@ class ShoppingCartController < ApplicationController
     @cart = session[:shopping_cart] if session[:shopping_cart].present?
     @feature_id = params[:id]
     @quantity = params[:quantity].to_i + 1
+
     @new_hash = { @feature_id => @quantity }
     @cart.merge!(@new_hash)
     session[:shopping_cart] = @cart
@@ -65,6 +66,7 @@ class ShoppingCartController < ApplicationController
   def remove_from_cart
     @cart = session[:shopping_cart] if session[:shopping_cart].present?
     @cart.delete(params[:id])
+    flash[:success] = 'The item was removed successfully'
     session[:shopping_cart] = @cart
     # render json: { data: params[:id], status: 200 }
     redirect_to '/shopping_cart/index'
