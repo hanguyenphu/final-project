@@ -9,7 +9,7 @@
                 </h4>
             </div>
     </div>
-      <%@invoices.each do |invoice|%>
+      <% @invoices.each do |invoice|%>
      <div class="mdl-grid" style="border-top: 1px solid red">
         <div class="mdl-cell mdl-cell--2-col">
             Order Id: <%=invoice.id%>
@@ -31,7 +31,7 @@
             <ol>
                 <%invoice.solditems.all.each do |item|%>
                     <li><%=item.name%></li>
-                <%end%>       
+                <%end%>
             </ol>
         </div>
          <div class="mdl-cell mdl-cell--2-col">
@@ -40,7 +40,7 @@
      </div>
       <%end%>
 
-     <div class="mdl-grid"> 
+     <div class="mdl-grid">
      </div>
   </main>
 </div>
