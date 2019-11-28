@@ -56,21 +56,26 @@
 <br/>
 </li>
 <% end %>
-
 </ol>
-<%else %>
-  <p style="padding-left: 50px;">The cart is empty!</p>
-<%end%>
- <div class="mdl-grid" style="padding-left: 50px;">
-    <% if flash[:success] %>
-      <div style="color: green"><%= flash[:success] %></div>
-    <% end %>
-</div>
+
 <a href="/check_out/index" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="margin-left: 30px;">
   Process To Checkout <i class="material-icons">
     arrow_forward
 </i>
 </a>
+<%else %>
+  <p style="padding-left: 50px;">The cart is empty!</p>
+
+
+
+
+<%end%>
+
+ <div class="mdl-grid" style="padding-left: 50px;">
+    <% if flash[:success] %>
+      <div style="color: green"><%= flash[:success] %></div>
+    <% end %>
+</div>
 
 
 

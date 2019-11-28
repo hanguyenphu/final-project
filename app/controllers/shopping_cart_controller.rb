@@ -34,7 +34,6 @@ class ShoppingCartController < ApplicationController
     @cart = session[:shopping_cart] if session[:shopping_cart].present?
     @feature_id = params[:id]
     @quantity = params[:quantity].to_i + 1
-
     @new_hash = { @feature_id => @quantity }
     @cart.merge!(@new_hash)
     session[:shopping_cart] = @cart
